@@ -37,6 +37,10 @@ class ExtractedItem(BaseModel):
     unit: str
 
 
+class TextOrderRequest(BaseModel):
+    text: str
+
+
 class OrderItem(BaseModel):
     product: str
     quantity: float

@@ -29,7 +29,7 @@ async def test_order_known_products(db: AsyncSession):
     ]
 
     with patch(
-        "app.services.order_processor._bedrock.extract_order_items",
+        "app.services.order_processor._llm.extract_order_items",
         return_value=extracted,
     ):
         order = await process_order("2 kg of tomatoes and a dozen eggs", db)
@@ -56,7 +56,7 @@ async def test_order_unknown_product(db: AsyncSession):
     ]
 
     with patch(
-        "app.services.order_processor._bedrock.extract_order_items",
+        "app.services.order_processor._llm.extract_order_items",
         return_value=extracted,
     ):
         order = await process_order("1 kg apples and 2 dragon fruits", db)
@@ -75,7 +75,7 @@ async def test_order_all_unknown(db: AsyncSession):
     extracted = [ExtractedItem(product_name="Unicorn Milk", quantity=1, unit="liter")]
 
     with patch(
-        "app.services.order_processor._bedrock.extract_order_items",
+        "app.services.order_processor._llm.extract_order_items",
         return_value=extracted,
     ):
         order = await process_order("1 liter of unicorn milk", db)
@@ -93,7 +93,7 @@ async def test_alias_match(db: AsyncSession):
     extracted = [ExtractedItem(product_name="spuds", quantity=3, unit="kg")]
 
     with patch(
-        "app.services.order_processor._bedrock.extract_order_items",
+        "app.services.order_processor._llm.extract_order_items",
         return_value=extracted,
     ):
         order = await process_order("3 kg of spuds", db)

@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.services.transcribe import TranscribeService
 from app.services.order_processor import process_order
+from app.models.schemas import TextOrderRequest, OrderResponse
 from app.api import products, health
 
 app = FastAPI(title="Grocery Voice-to-Response API", version="1.0.0")
@@ -20,6 +21,15 @@ app.include_router(health.router)
 app.include_router(products.router, prefix="/products")
 
 _transcribe = TranscribeService()
+
+
+@app.post("/order/text", response_model=OrderResponse, tags=["order"])
+async def order_from_text(
+    request: TextOrderRequest, db: AsyncSession = Depends(get_db)
+):
+    """Accept a plain-text order and return a priced order response.
+    Use this endpoint for local testing without a microphone or AWS Transcribe."""
+    return await process_order(request.text, db)
 
 
 @app.websocket("/ws/order")

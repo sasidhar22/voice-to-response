@@ -1,14 +1,23 @@
 from decimal import Decimal
 from sqlalchemy.ext.asyncio import AsyncSession
+from app.config import settings
 from app.models.schemas import OrderItem, OrderResponse
-from app.services.bedrock import BedrockService
 from app.services.product_service import get_product_by_name
 
-_bedrock = BedrockService()
+
+def _build_llm():
+    if settings.llm_provider == "ollama":
+        from app.services.ollama_service import OllamaService
+        return OllamaService()
+    from app.services.bedrock import BedrockService
+    return BedrockService()
+
+
+_llm = _build_llm()
 
 
 async def process_order(transcript: str, db: AsyncSession) -> OrderResponse:
-    extracted = _bedrock.extract_order_items(transcript)
+    extracted = _llm.extract_order_items(transcript)
 
     items: list[OrderItem] = []
     grand_total = Decimal("0.00")
