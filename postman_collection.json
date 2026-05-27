@@ -1,0 +1,122 @@
+{
+  "info": {
+    "name": "Grocery Voice-to-Response API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/products/"
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/products/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mangoes\",\n  \"category\": \"Fruits\",\n  \"unit\": \"kg\",\n  \"price_per_unit\": 3.50,\n  \"aliases\": [\"mango\", \"mangoes\"]\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/products/{{product_id}}",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price_per_unit\": 3.99\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/products/{{product_id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Place Order — known products",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/order/text",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"I want 2 kg of tomatoes, a dozen eggs and 1 liter of milk\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Place Order — with unknown product",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/order/text",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"3 kg of potatoes and 2 dragon fruits\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Place Order — aliases",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/order/text",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"half a kilo of spuds and a loaf of bread\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Place Order — full basket",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/order/text",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"I need 1 kg chicken breast, 500g rice, a pack of pasta, 2 liters of olive oil and a dozen eggs\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
