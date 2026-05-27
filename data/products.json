@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Tomatoes",
+    "category": "Vegetables",
+    "unit": "kg",
+    "price_per_unit": 1.50,
+    "aliases": ["tomato", "tomatoes", "roma tomato", "roma tomatoes"]
+  },
+  {
+    "name": "Eggs",
+    "category": "Dairy & Eggs",
+    "unit": "piece",
+    "price_per_unit": 0.30,
+    "aliases": ["egg", "eggs"]
+  },
+  {
+    "name": "Whole Milk",
+    "category": "Dairy & Eggs",
+    "unit": "liter",
+    "price_per_unit": 1.20,
+    "aliases": ["milk", "whole milk", "full cream milk"]
+  },
+  {
+    "name": "Bread",
+    "category": "Bakery",
+    "unit": "pack",
+    "price_per_unit": 2.50,
+    "aliases": ["bread", "loaf", "white bread", "sandwich bread"]
+  },
+  {
+    "name": "Chicken Breast",
+    "category": "Meat",
+    "unit": "kg",
+    "price_per_unit": 7.99,
+    "aliases": ["chicken", "chicken breast", "chicken breasts"]
+  },
+  {
+    "name": "Bananas",
+    "category": "Fruits",
+    "unit": "kg",
+    "price_per_unit": 0.99,
+    "aliases": ["banana", "bananas"]
+  },
+  {
+    "name": "Apples",
+    "category": "Fruits",
+    "unit": "kg",
+    "price_per_unit": 2.20,
+    "aliases": ["apple", "apples", "red apple", "green apple"]
+  },
+  {
+    "name": "Potatoes",
+    "category": "Vegetables",
+    "unit": "kg",
+    "price_per_unit": 0.89,
+    "aliases": ["potato", "potatoes", "spud", "spuds"]
+  },
+  {
+    "name": "Onions",
+    "category": "Vegetables",
+    "unit": "kg",
+    "price_per_unit": 0.75,
+    "aliases": ["onion", "onions", "yellow onion", "brown onion"]
+  },
+  {
+    "name": "Butter",
+    "category": "Dairy & Eggs",
+    "unit": "pack",
+    "price_per_unit": 3.49,
+    "aliases": ["butter", "unsalted butter", "salted butter"]
+  },
+  {
+    "name": "Cheddar Cheese",
+    "category": "Dairy & Eggs",
+    "unit": "kg",
+    "price_per_unit": 9.99,
+    "aliases": ["cheese", "cheddar", "cheddar cheese"]
+  },
+  {
+    "name": "Orange Juice",
+    "category": "Beverages",
+    "unit": "liter",
+    "price_per_unit": 2.99,
+    "aliases": ["orange juice", "oj", "fresh orange juice"]
+  },
+  {
+    "name": "Rice",
+    "category": "Grains",
+    "unit": "kg",
+    "price_per_unit": 1.80,
+    "aliases": ["rice", "white rice", "basmati rice", "long grain rice"]
+  },
+  {
+    "name": "Pasta",
+    "category": "Grains",
+    "unit": "pack",
+    "price_per_unit": 1.25,
+    "aliases": ["pasta", "spaghetti", "penne", "fusilli", "noodles"]
+  },
+  {
+    "name": "Olive Oil",
+    "category": "Condiments",
+    "unit": "liter",
+    "price_per_unit": 6.50,
+    "aliases": ["olive oil", "extra virgin olive oil", "evoo"]
+  }
+]
